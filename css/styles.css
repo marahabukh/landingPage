@@ -215,7 +215,7 @@ section.your-active-class .landing__container::after {
   animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-/* Section Active Styles Keyframe Animations */
+
 @keyframes rotate {
   from {
     transform: rotate(0deg) translate(-1em) rotate(0deg);
@@ -241,3 +241,74 @@ section.your-active-class .landing__container::after {
   .page__footer {
     padding: 4em;
   }
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .navbar__menu ul {
+    flex-direction: column; 
+    text-align: center;
+  }
+
+  .navbar__menu .menu__link {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .landing__container {
+    padding: 14px;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size:55px;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  .navbar__menu .menu__link {
+    font-size: 18px;
+  }
+
+  .landing__container {
+    padding: 34px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  .navbar__menu .menu__link {
+    font-size: 20px;
+  }
+
+  .landing__container {
+    padding: 50px;
+  }
+}
+section.active {
+  border-color: aqua;
+  border:1px solid black ;
+  color: #fff;
+  
+  
+}
+
+
+.navbar__menu .menu__link.active {
+  background-color: #a92323;
+  color: rgb(255, 248, 232);
+  border-radius: 4px;
+}

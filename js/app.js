@@ -1,27 +1,40 @@
-const section=['section1','section2','section3','section4'] ;
+const sections=['section1','section2','section3','section4'] ;
 // Select the navigation list
 const navbar= document.getElementById('navbar__list');
 //Add the id and the name of them
-section.forEach(items=>{
+sections.forEach(items=>{
 
   const listitems=document.createElement('li') ;
   listitems.innerHTML=  `<a href="#${items}">${items}</a>` ;
   navbar.appendChild(listitems) ;
 });
 //Active pass scrolling
-window.addEventListener('scroll', () => {
-  const sec = document.querySelectorAll('section');
+// This code exhausted me until it fixed it
+const section = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('#navbar__list a');
+window.addEventListener('scroll', () => {
+  
 
-  sections.forEach((sec, index) => {
-    const ret = sec.getBoundingClientRect();
+  section.forEach((section, index) => {
+    const ret = section.getBoundingClientRect();
     if (ret.top <= 0 && ret.bottom >= 0) {
       // link as active
       navLinks.forEach(link => link.classList.remove('active'));
       navLinks[index].classList.add('active');
     }
+    if (ret.top >= 0 && ret.top < window.innerHeight / 2) {
+      
+      section.classList.add("active");
+      navLinks[index].classList.add("active");
+    } else {
+
+      section.classList.remove("active");
+      navLinks[index].classList.remove("active");
+    }
   });
 });
+
+
 // Add smooth scrolling to menu links onclick
 navbar.addEventListener('click', (event) => {
   event.preventDefault();
@@ -43,3 +56,4 @@ navbar.addEventListener('click', (event) => {
     }
   }
 });
+
