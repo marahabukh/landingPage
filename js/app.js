@@ -15,23 +15,18 @@ const section = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   
 
-  section.forEach((section, index) => {
+  // i delted the repitition 
+  //make 2 if statement in 1 if state
+  section.forEach((section, indx) => {
     const ret = section.getBoundingClientRect();
-    if (ret.top <= 0 && ret.bottom >= 0) {
-      // link as active
+    if (ret.top <= window.innerHeight / 2 && ret.bottom >= window.innerHeight / 2) {
+     
       navLinks.forEach(link => link.classList.remove('active'));
-      navLinks[index].classList.add('active');
-    }
-    if (ret.top >= 0 && ret.top < window.innerHeight / 2) {
-      
-      section.classList.add("active");
-      navLinks[index].classList.add("active");
-    } else {
 
-      section.classList.remove("active");
-      navLinks[index].classList.remove("active");
+      navLinks[indx].classList.add('active');
     }
   });
+    
 });
 
 
